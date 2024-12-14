@@ -282,10 +282,10 @@ public class GuiLibros extends javax.swing.JDialog {
     private final GestorLibros gestorLibros = new GestorLibros();
     private void BotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonGuardarActionPerformed
     try {
-        // Obtener los datos de los campos de texto
-        String titulo = jTextField1.getText().trim(); // Título del libro
-        String autor = jTextField2.getText().trim();  // Autor del libro
-        String isbn = jTextField3.getText().trim();    // ISBN del libro
+        
+        String titulo = jTextField1.getText().trim(); 
+        String autor = jTextField2.getText().trim();  
+        String isbn = jTextField3.getText().trim();    
 
         // Validar que todos los campos estén completos
         if (titulo.isEmpty() || autor.isEmpty() || isbn.isEmpty()) {

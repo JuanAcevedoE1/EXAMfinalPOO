@@ -4,6 +4,8 @@
  */
 package edu.unicartagena.poo.gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Carlos
@@ -31,8 +33,8 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        MenuAutor = new javax.swing.JMenu();
-        AgregarAutor = new javax.swing.JCheckBoxMenuItem();
+        MenuEditorial1 = new javax.swing.JMenu();
+        jCheckBoxMenuItem10 = new javax.swing.JCheckBoxMenuItem();
         MenuEditorial = new javax.swing.JMenu();
         jCheckBoxMenuItem9 = new javax.swing.JCheckBoxMenuItem();
 
@@ -119,25 +121,20 @@ public class GuiPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuLibro);
 
-        MenuAutor.setText("Autor");
-        MenuAutor.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
-        MenuAutor.addActionListener(new java.awt.event.ActionListener() {
+        MenuEditorial1.setText("Autor");
+        MenuEditorial1.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
+
+        jCheckBoxMenuItem10.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jCheckBoxMenuItem10.setSelected(true);
+        jCheckBoxMenuItem10.setText("Agregar Autor");
+        jCheckBoxMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuAutorActionPerformed(evt);
+                jCheckBoxMenuItem10ActionPerformed(evt);
             }
         });
+        MenuEditorial1.add(jCheckBoxMenuItem10);
 
-        AgregarAutor.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        AgregarAutor.setSelected(true);
-        AgregarAutor.setText("Agregar Autor");
-        AgregarAutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarAutorActionPerformed(evt);
-            }
-        });
-        MenuAutor.add(AgregarAutor);
-
-        jMenuBar1.add(MenuAutor);
+        jMenuBar1.add(MenuEditorial1);
 
         MenuEditorial.setText("Editorial");
         MenuEditorial.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
@@ -202,21 +199,22 @@ public class GuiPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuLibroActionPerformed
 
-    private void MenuAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MenuAutorActionPerformed
-
-    private void AgregarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAutorActionPerformed
-       GuiAutor gui = new GuiAutor(this,true);
-       gui.setLocationRelativeTo(this);
-       gui.setVisible(true);
-    }//GEN-LAST:event_AgregarAutorActionPerformed
-
     private void jCheckBoxMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem9ActionPerformed
        GuiEditorial gui = new GuiEditorial(this,true);
        gui.setLocationRelativeTo(this);
        gui.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem9ActionPerformed
+
+    private void jCheckBoxMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem10ActionPerformed
+       try {
+        GuiAutor gui = new GuiAutor(this, true);
+        gui.setLocationRelativeTo(this);
+        gui.setVisible(true);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al abrir la ventana de Autor: " + e.getMessage(),
+                                      "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_jCheckBoxMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,12 +252,12 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem AgregarAutor;
     private javax.swing.JButton BotonExit;
-    private javax.swing.JMenu MenuAutor;
     private javax.swing.JMenu MenuEditorial;
+    private javax.swing.JMenu MenuEditorial1;
     private javax.swing.JMenu MenuLibro;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem10;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem5;
