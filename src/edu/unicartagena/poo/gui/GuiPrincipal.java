@@ -145,6 +145,11 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem9.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem9.setSelected(true);
         jCheckBoxMenuItem9.setText("AgregarEditorial");
+        jCheckBoxMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem9ActionPerformed(evt);
+            }
+        });
         MenuEditorial.add(jCheckBoxMenuItem9);
 
         jMenuBar1.add(MenuEditorial);
@@ -202,10 +207,16 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuAutorActionPerformed
 
     private void AgregarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAutorActionPerformed
-        GuiAutor gui = new GuiAutor(this,true);
+       GuiAutor gui = new GuiAutor(this,true);
        gui.setLocationRelativeTo(this);
        gui.setVisible(true);
     }//GEN-LAST:event_AgregarAutorActionPerformed
+
+    private void jCheckBoxMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem9ActionPerformed
+       GuiEditorial gui = new GuiEditorial(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
