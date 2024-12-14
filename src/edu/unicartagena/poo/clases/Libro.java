@@ -4,10 +4,7 @@ package edu.unicartagena.poo.clases;
 import java.io.Serializable;
 
 
-/**
- *
- * @author Carlos
- */
+
 public class Libro implements Serializable {
     private String titulo;
     private String autor;

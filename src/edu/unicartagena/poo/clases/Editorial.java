@@ -3,10 +3,6 @@ package edu.unicartagena.poo.clases;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos
- */
 public class Editorial {
     private String nombre;
     private String pais;
@@ -17,7 +13,6 @@ public class Editorial {
         this.pais = pais;
         this.anioFundacion = anioFundacion;
     }
-
     // Getters y Setters
     public String getNombre() {
         return nombre;
@@ -42,8 +37,6 @@ public class Editorial {
     public void setAnioFundacion(int anioFundacion) {
         this.anioFundacion = anioFundacion;
     }
-
-    // Sobrescribir equals y hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

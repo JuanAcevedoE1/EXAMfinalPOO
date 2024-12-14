@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Carlos
+ * @author JuanEsteban
  */
 public class GestorAutor {
     // Lista para almacenar autores (puede simular una base de datos)

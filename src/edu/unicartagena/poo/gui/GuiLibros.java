@@ -211,31 +211,31 @@ public class GuiLibros extends javax.swing.JDialog {
 
     private void BotonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEditarActionPerformed
         try {
-        // Solicitar al usuario que ingrese el título del libro a editar
+        
         String titulo = JOptionPane.showInputDialog(this, "Ingrese el título del libro que desea editar:", "Editar Libro", JOptionPane.QUESTION_MESSAGE);
 
-        // Verificar que se ingresó un título
+        
         if (titulo == null || titulo.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Debe ingresar el título de un libro para editarlo.", "Error", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        // Buscar el libro por título
+        
         Libro libroAEditar = gestorLibros.buscarLibroPorTitulo(titulo.trim());
 
-        // Verificar si el libro existe
+        
         if (libroAEditar == null) {
             JOptionPane.showMessageDialog(this, "No se encontraron libros con ese título o los datos son incorrectos.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Crear un panel personalizado para editar los datos
-        JPanel panelEdicion = new JPanel(new GridLayout(4, 2, 5, 5)); // Panel con un diseño de cuadrícula
-        JTextField campoTitulo = new JTextField(libroAEditar.getTitulo()); // Campo para el título
-        JTextField campoAutor = new JTextField(libroAEditar.getAutor()); // Campo para el autor
-        JTextField campoISBN = new JTextField(libroAEditar.getIsbn());   // Campo para el ISBN
+        // panel editar datos
+        JPanel panelEdicion = new JPanel(new GridLayout(4, 2, 5, 5)); 
+        JTextField campoTitulo = new JTextField(libroAEditar.getTitulo()); 
+        JTextField campoAutor = new JTextField(libroAEditar.getAutor()); 
+        JTextField campoISBN = new JTextField(libroAEditar.getIsbn());   
 
-        // Agregar los campos al panel
+        
         panelEdicion.add(new JLabel("Título:"));
         panelEdicion.add(campoTitulo);
         panelEdicion.add(new JLabel("Autor:"));
@@ -243,7 +243,7 @@ public class GuiLibros extends javax.swing.JDialog {
         panelEdicion.add(new JLabel("ISBN:"));
         panelEdicion.add(campoISBN);
 
-        // Mostrar el cuadro de diálogo para editar
+        
         int resultado = JOptionPane.showConfirmDialog(
             this,
             panelEdicion,
@@ -252,9 +252,9 @@ public class GuiLibros extends javax.swing.JDialog {
             JOptionPane.PLAIN_MESSAGE
         );
 
-        // Verificar si el usuario presionó "Guardar" (OK)
+        
         if (resultado == JOptionPane.OK_OPTION) {
-            // Validar que los campos no estén vacíos
+            
             String nuevoTitulo = campoTitulo.getText().trim();
             String nuevoAutor = campoAutor.getText().trim();
             String nuevoISBN = campoISBN.getText().trim();
@@ -264,7 +264,7 @@ public class GuiLibros extends javax.swing.JDialog {
                 return;
             }
 
-            // Actualizar los datos del libro
+            
             libroAEditar.setTitulo(nuevoTitulo);
             libroAEditar.setAutor(nuevoAutor);
             libroAEditar.setIsbn(nuevoISBN);
@@ -287,7 +287,7 @@ public class GuiLibros extends javax.swing.JDialog {
         String autor = jTextField2.getText().trim();  
         String isbn = jTextField3.getText().trim();    
 
-        // Validar que todos los campos estén completos
+        
         if (titulo.isEmpty() || autor.isEmpty() || isbn.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -296,17 +296,17 @@ public class GuiLibros extends javax.swing.JDialog {
         // Crear un nuevo libro
         Libro nuevoLibro = new Libro(titulo, autor, isbn);
 
-        // Verificar si el libro ya existe
+        
         if (gestorLibros.existeLibro(nuevoLibro)) {
             JOptionPane.showMessageDialog(this, "Ya existe un libro con estos datos.", "Error", JOptionPane.WARNING_MESSAGE);
         } else {
-            // Agregar el libro al gestor
+            
             gestorLibros.agregarLibro(nuevoLibro);
 
-            // Mostrar mensaje de éxito
+            
             JOptionPane.showMessageDialog(this, "Libro guardado exitosamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
-            // Limpiar los campos
+            
             limpiarCampos();
         }
 

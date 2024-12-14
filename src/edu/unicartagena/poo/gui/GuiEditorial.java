@@ -4,10 +4,7 @@
  */
 package edu.unicartagena.poo.gui;
 
-/**
- *
- * @author Carlos
- */
+
 public class GuiEditorial extends javax.swing.JDialog {
 
     /**

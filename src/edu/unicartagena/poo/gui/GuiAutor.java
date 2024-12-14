@@ -199,23 +199,23 @@ private final GestorAutor gestorAutor;
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
          String nombre = jTextField1.getText().trim();
 
-    // Validar que el campo del nombre no esté vacío
+    
     if (nombre.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre del autor para buscar.");
         return;
     }
 
-    // Intentar buscar el autor en la lista
+    
     Autor autorEncontrado = gestorAutor.buscarAutor(nombre);
 
     if (autorEncontrado != null) {
-        // Si se encuentra, mostrar sus datos en los campos
+        
         jTextField1.setText(autorEncontrado.getNombre());
         jTextField2.setText(autorEncontrado.getPaisOrigen());
         jTextField3.setText(autorEncontrado.getFechaNacimiento());
         javax.swing.JOptionPane.showMessageDialog(this, "Autor encontrado.");
     } else {
-        // Si no se encuentra, mostrar un mensaje y limpiar los campos
+        
         javax.swing.JOptionPane.showMessageDialog(this, "El autor no se encuentra en el sistema.");
         jTextField1.setText("");
         jTextField2.setText("");
@@ -228,28 +228,28 @@ private final GestorAutor gestorAutor;
     String paisOrigen = jTextField2.getText().trim();
     String fechaNacimiento = jTextField3.getText().trim();
 
-    // Validar que todos los campos estén llenos
+    
     if (nombre.isEmpty() || paisOrigen.isEmpty() || fechaNacimiento.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
         return;
     }
 
-    // Crear un nuevo objeto Autor
+    
     Autor nuevoAutor = new Autor(nombre, paisOrigen, fechaNacimiento);
 
-    // Intentar agregar el autor usando GestorAutor
+    
     boolean agregado = gestorAutor.agregarAutor(nuevoAutor);
 
     if (agregado) {
-        // Mostrar mensaje de éxito
+        
         javax.swing.JOptionPane.showMessageDialog(this, "Autor guardado exitosamente.");
         
-        // Limpiar los campos de texto
+        
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
     } else {
-        // Mostrar mensaje si el autor ya existe
+       
         javax.swing.JOptionPane.showMessageDialog(this, "El autor ya existe en el sistema.");
         
         jTextField1.setText("");
@@ -265,25 +265,25 @@ private final GestorAutor gestorAutor;
     private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
         String nombre = jTextField1.getText().trim();
 
-    // Validar que se ingresó un nombre
+    
     if (nombre.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Por favor, ingrese el nombre del autor a eliminar.");
         return;
     }
 
-    // Intentar eliminar al autor usando GestorAutor
+    
     boolean eliminado = gestorAutor.eliminarAutor(nombre);
 
     if (eliminado) {
-        // Mostrar mensaje de éxito
+        
         javax.swing.JOptionPane.showMessageDialog(this, "Autor eliminado exitosamente.");
         
-        // Limpiar los campos de texto
+        
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
     } else {
-        // Mostrar mensaje de error si el autor no existe
+        
         javax.swing.JOptionPane.showMessageDialog(this, "No se encontró un autor con el nombre especificado.");
     }
     }//GEN-LAST:event_BotonEliminarActionPerformed

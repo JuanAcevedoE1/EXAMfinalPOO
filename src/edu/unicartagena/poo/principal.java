@@ -5,7 +5,7 @@ import edu.unicartagena.poo.gui.GuiPrincipal;
 
 /**
  *
- * @author Carlos
+ * @author JuanEsteban
  */
 public class principal {
 
