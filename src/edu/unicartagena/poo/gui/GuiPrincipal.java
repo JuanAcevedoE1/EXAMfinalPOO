@@ -10,9 +10,6 @@ package edu.unicartagena.poo.gui;
  */
 public class GuiPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GuiPrincipal
-     */
     public GuiPrincipal() {
         initComponents();
     }
@@ -27,6 +24,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BotonExit = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuLibro = new javax.swing.JMenu();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
@@ -34,31 +32,52 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         MenuAutor = new javax.swing.JMenu();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        AgregarAutor = new javax.swing.JCheckBoxMenuItem();
         MenuEditorial = new javax.swing.JMenu();
         jCheckBoxMenuItem9 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GestionDeLibros");
+        setTitle(".::GestionDeLibros::.");
 
-        jPanel1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusColor"));
+        jPanel1.setBackground(new java.awt.Color(107, 90, 113));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 2, true));
+        jPanel1.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusColor"));
+
+        BotonExit.setFont(new java.awt.Font("Arial", 3, 29)); // NOI18N
+        BotonExit.setForeground(java.awt.SystemColor.activeCaption);
+        BotonExit.setText("EXIT");
+        BotonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 876, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(565, Short.MAX_VALUE)
+                .addComponent(BotonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(272, Short.MAX_VALUE)
+                .addComponent(BotonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
 
         MenuLibro.setText("Libro");
         MenuLibro.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
+        MenuLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuLibroActionPerformed(evt);
+            }
+        });
 
-        jCheckBoxMenuItem3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jCheckBoxMenuItem3.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem3.setSelected(true);
         jCheckBoxMenuItem3.setText("Agregar Libro...");
         jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +87,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         });
         MenuLibro.add(jCheckBoxMenuItem3);
 
-        jCheckBoxMenuItem4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jCheckBoxMenuItem4.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem4.setSelected(true);
         jCheckBoxMenuItem4.setText("Consultar Datos...");
         jCheckBoxMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -78,32 +97,52 @@ public class GuiPrincipal extends javax.swing.JFrame {
         });
         MenuLibro.add(jCheckBoxMenuItem4);
 
-        jCheckBoxMenuItem5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jCheckBoxMenuItem5.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem5.setSelected(true);
         jCheckBoxMenuItem5.setText("Editar Datos..");
+        jCheckBoxMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem5ActionPerformed(evt);
+            }
+        });
         MenuLibro.add(jCheckBoxMenuItem5);
 
-        jCheckBoxMenuItem1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jCheckBoxMenuItem1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Eliminar...");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
         MenuLibro.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(MenuLibro);
 
         MenuAutor.setText("Autor");
         MenuAutor.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
+        MenuAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAutorActionPerformed(evt);
+            }
+        });
 
-        jCheckBoxMenuItem2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Agregar Autor");
-        MenuAutor.add(jCheckBoxMenuItem2);
+        AgregarAutor.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        AgregarAutor.setSelected(true);
+        AgregarAutor.setText("Agregar Autor");
+        AgregarAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarAutorActionPerformed(evt);
+            }
+        });
+        MenuAutor.add(AgregarAutor);
 
         jMenuBar1.add(MenuAutor);
 
         MenuEditorial.setText("Editorial");
         MenuEditorial.setFont(new java.awt.Font("Arial Black", 2, 16)); // NOI18N
 
-        jCheckBoxMenuItem9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jCheckBoxMenuItem9.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jCheckBoxMenuItem9.setSelected(true);
         jCheckBoxMenuItem9.setText("AgregarEditorial");
         MenuEditorial.add(jCheckBoxMenuItem9);
@@ -127,12 +166,46 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
-        // TODO add your handling code here:
+      GuiLibros gui = new GuiLibros(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
 
     private void jCheckBoxMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        GuiLibros gui = new GuiLibros(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
+
+    private void BotonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BotonExitActionPerformed
+
+    private void jCheckBoxMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem5ActionPerformed
+        GuiLibros gui = new GuiLibros(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem5ActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        GuiLibros gui = new GuiLibros(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void MenuLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuLibroActionPerformed
+
+    private void MenuAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuAutorActionPerformed
+
+    private void AgregarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarAutorActionPerformed
+        GuiAutor gui = new GuiAutor(this,true);
+       gui.setLocationRelativeTo(this);
+       gui.setVisible(true);
+    }//GEN-LAST:event_AgregarAutorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,11 +243,12 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem AgregarAutor;
+    private javax.swing.JButton BotonExit;
     private javax.swing.JMenu MenuAutor;
     private javax.swing.JMenu MenuEditorial;
     private javax.swing.JMenu MenuLibro;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem5;

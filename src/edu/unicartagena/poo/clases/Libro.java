@@ -1,13 +1,14 @@
 
 package edu.unicartagena.poo.clases;
 
-import java.util.Objects;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Carlos
  */
-public class Libro {
+public class Libro implements Serializable {
     private String titulo;
     private String autor;
     private String isbn;
@@ -43,18 +44,9 @@ public class Libro {
         this.isbn = isbn;
     }
 
-    // Sobrescribir equals y hashCode
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Libro libro = (Libro) o;
-        return Objects.equals(isbn, libro.isbn);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isbn);
+    public String toString() {
+        return "Título: " + titulo + ", Autor: " + autor + ", ISBN: " + isbn;
     }
 }
 
